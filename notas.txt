@@ -1,0 +1,29 @@
+GRAPHQL
+4 conceptos principales: Query, Mutations, Schema y Resolvers
+Query: Es algo similar o equivalente a una petición GET con APIs REST, sirven para obtener valores
+de la base de datos.
+
+Mutations: Similar o equivalente a POST/PATCH/POST/DELETE con APIs REST, sirven para crear, modificar
+o eliminar elementos de la base de datos.
+
+Schema:  Básicamente es la entity que describe la forma de nuestra tabla o colección de nuestra base de datos,
+declara los campos y el tipo de dato que tiene un type determinado y se asocian con los resolvers.
+
+Resolvers: Son aquellos que ejecutan la lógica al ir a la base de datos a traer los datos, retornan los campos
+definidos por el Schema y están asociados a él.
+
+---------Crear servidor Apollo------------
+// npm i apollo-server 
+const {ApolloServer, gql} = require('apollo-server')
+
+// Servidor
+const server = new ApolloServer({
+    typeDefs, // Se le pasa el Schemna
+    resolvers // Y también los resolvers
+});
+
+// Arrancar el servidor
+server.listen().then( ({url}) => {
+    console.log(`Server running in URL ${url}`)
+} )
+----------------------------------------------
